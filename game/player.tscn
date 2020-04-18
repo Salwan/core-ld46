@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/initial/paddle.png" type="Texture" id=1]
+[ext_resource path="res://assets/initial/starter_paddles.png" type="Texture" id=2]
+[ext_resource path="res://game/player.gd" type="Script" id=3]
+
+[node name="player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 3 )
+
+[node name="paddle1" type="Sprite" parent="."]
+position = Vector2( 276, -135 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="paddle2" type="Sprite" parent="."]
+position = Vector2( 6, 307 )
+rotation = 2.00713
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="paddle3" type="Sprite" parent="."]
+position = Vector2( -280, -125 )
+rotation = -2.26893
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="starter_paddles" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0588235 )
+position = Vector2( 0, 41 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="poly1" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 203, -242, 225, -268, 261, -233, 298, -184, 326, -129, 344, -68, 350, 0, 315, 0, 309, -62, 294, -113, 268, -167, 239, -205 )
+
+[node name="poly2" type="CollisionPolygon2D" parent="."]
+rotation = 2.00713
+polygon = PoolVector2Array( 203, -242, 225, -268, 261, -233, 298, -184, 326, -129, 344, -68, 350, 0, 315, 0, 309, -62, 294, -113, 268, -167, 239, -205 )
+
+[node name="poly3" type="CollisionPolygon2D" parent="."]
+rotation = -2.26893
+polygon = PoolVector2Array( 203, -242, 225, -268, 261, -233, 298, -184, 326, -129, 344, -68, 350, 0, 315, 0, 309, -62, 294, -113, 268, -167, 239, -205 )
