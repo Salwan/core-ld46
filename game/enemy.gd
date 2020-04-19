@@ -2,6 +2,8 @@ extends RigidBody2D
 
 class_name CEnemy
 
+signal sig_enemy_killed
+
 export(float) var spawnForce:float = 100.0
 export(float) var damage:float = 10.0
 export(float) var lifetime:float = 10.0
@@ -38,6 +40,7 @@ func _physics_process(delta):
 	on_physics_process(delta)
 
 func _on_VisibilityNotifier2D_screen_exited():
+	emit_signal("sig_enemy_killed")
 	queue_free()
 
 # Override to change behavior
@@ -59,5 +62,10 @@ func explode():
 	var ex = explodeFX.instance()
 	ex.global_position = global_position
 	get_parent().add_child(ex)
+	emit_signal("sig_enemy_killed")
 	queue_free()
 
+func disable(dis:bool = true):
+	for c in get_children():
+		if c is CollisionShape2D:
+			c.disabled = dis

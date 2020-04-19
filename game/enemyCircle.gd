@@ -13,4 +13,3 @@ func on_integrate_forces(state:Physics2DDirectBodyState):
 func on_collision_explode():
 	Global.emit_signal("sig_circle_explode", self)
 	explode()
-	

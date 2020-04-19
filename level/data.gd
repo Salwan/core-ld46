@@ -6,6 +6,7 @@ enum ePopulation { RATE, TOTAL }
 
 class cEnemy:
 	
+	var bg:String
 	var id:String
 	var start:float
 	var end:float
@@ -42,6 +43,7 @@ class cLevel:
 	var name:String
 	var time:float
 	var enemies:Array
+	var bg:String
 
 	func _init(data):
 		print("Parsing level data..")
@@ -50,6 +52,8 @@ class cLevel:
 			name = str(n)
 			break
 		print("- Name: " +name)
+		bg = str(data[name].bg)
+		print("- bg color: " + bg)
 		time = float(data[name].time)
 		print("- Time: " + str(time))
 		enemies = []
@@ -61,10 +65,11 @@ class cLevel:
 
 const Levels:Array = ["""{
 	"beginnings": {
-		"time": 50,
+		"bg": "#80050505",
+		"time": 64,
 		"enemies": [
 			{
-				"id": "circle",
+				"id": "square",
 				"start": 2,
 				"end": 55,
 				"rate": 1.5
@@ -73,13 +78,19 @@ const Levels:Array = ["""{
 				"start": 20,
 				"end": 25,
 				"total": 2
+			}, {
+				"id": "heal",
+				"start": 55,
+				"end": 62,
+				"total": 5
 			}
 		]
 	}
 }
 """, """{
 	"insurgence": {
-		"time": 60,
+		"bg": "#0adf7126",
+		"time": 62,
 		"enemies": [
 			{
 				"id": "square",
@@ -101,12 +112,18 @@ const Levels:Array = ["""{
 				"start": 20,
 				"end": 25,
 				"total": 2
+			}, {
+				"id": "heal",
+				"start": 50,
+				"end": 60,
+				"total": 5
 			}
 		]
 	}
 }""", """{
 	"epiphany": {
-		"time": 70,
+		"bg": "#0f5b6ee1",
+		"time": 88,
 		"enemies": [
 			{
 				"id": "square",
@@ -127,7 +144,17 @@ const Levels:Array = ["""{
 				"id": "circle",
 				"start": 50,
 				"end": 60,
-				"rate": 1
+				"rate": 1.5
+			}, {
+				"id": "boss",
+				"start": 65,
+				"end": 70,
+				"total": 1
+			}, {
+				"id": "square",
+				"start": 65,
+				"end": 85,
+				"rate": 1.2
 			}, {
 				"id": "heal",
 				"start": 20,
@@ -137,12 +164,80 @@ const Levels:Array = ["""{
 				"id": "heal",
 				"start": 45,
 				"end": 55,
-				"total": 3
+				"total": 7
 			}, {
 				"id": "heal",
 				"start": 60,
 				"end": 65,
-				"total": 4
+				"total": 5
+			}
+		]
+	}
+}""", """{
+	"reflection": {
+		"bg": "#0fd77bba",
+		"time": 109,
+		"enemies": [
+			{
+				"id": "triangle",
+				"start": 2,
+				"end": 20,
+				"rate": 1.5
+			},{
+				"id": "square",
+				"start": 26,
+				"end": 40,
+				"rate": 1.2
+			}, {
+				"id": "circle",
+				"start": 30,
+				"end": 45,
+				"rate": 3
+			}, {
+				"id": "triangle",
+				"start": 43,
+				"end": 60,
+				"rate": 3.5
+			}, {
+				"id": "circle",
+				"start": 50,
+				"end": 65,
+				"rate": 2
+			}, {
+				"id": "square",
+				"start": 68,
+				"end": 99,
+				"rate": 1.1
+			}, {
+				"id": "boss",
+				"start": 70,
+				"end": 76,
+				"rate": 2.5
+			}, {
+				"id": "heal",
+				"start": 20,
+				"end": 25,
+				"total": 2
+			}, {
+				"id": "heal",
+				"start": 45,
+				"end": 55,
+				"total": 7
+			}, {
+				"id": "heal",
+				"start": 70,
+				"end": 80,
+				"total": 6
+			}, {
+				"id": "heal",
+				"start": 95,
+				"end": 100,
+				"total": 5
+			}, {
+				"id": "win",
+				"start": 101,
+				"end": 103,
+				"total": 1
 			}
 		]
 	}

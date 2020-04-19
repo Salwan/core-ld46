@@ -9,6 +9,7 @@ export(PackedScene) var enemySquare = preload("res://game/enemySquare.tscn")
 export(PackedScene) var enemyTriangle = preload("res://game/enemyTriangle.tscn")
 export(PackedScene) var enemyCircle = preload("res://game/enemyCircle.tscn")
 export(PackedScene) var powerupHeal = preload("res://game/powerupHealth.tscn")
+export(PackedScene) var boss = preload("res://game/boss.tscn")
 
 var spawnTimers:Array = []
 var spawnParent:Node2D = null
@@ -37,15 +38,18 @@ func _ready():
 func init_game():
 	kill_all()
 	spawnParent = Node2D.new()
-	spawnParent.name = "spawnParent"
 	spawnParent.position = Vector2(0, 0)
 	get_parent().add_child(spawnParent)
+	spawnParent.name = "spawnParent"
 	for e in Global.currentLevel.enemies:
 		var tick_every:float = 1.0
 		if e.population == LevelData.ePopulation.RATE:
 			tick_every = e.rate
 		else:
-			tick_every = (e.end - e.start) / float(e.total)
+			if e.total > 1:
+				tick_every = (e.end - e.start) / float(e.total)
+			else:
+				tick_every = (e.end - e.start) * 0.6
 		# spawn timer
 		var t:Timer = Timer.new()
 		t.wait_time = tick_every
@@ -85,6 +89,17 @@ func spawn_enemy(enemy):
 				en = powerupHeal.instance()
 		en.position = ep
 		spawnParent.add_child(en)
+	elif enemy.id == "boss":
+		spawn_boss()
+	elif enemy.id == "win":
+		spawn_winning()
+
+func spawn_boss():
+	var b = boss.instance()
+	spawnParent.add_child(b)
+
+func spawn_winning():
+	Global.main.winning()
 
 func on_circle_explode(cir:RigidBody2D):
 	assert(cir)
@@ -123,3 +138,4 @@ func kill_all():
 	spawnTimers = []
 	if spawnParent and spawnParent.is_inside_tree():
 		spawnParent.queue_free()
+	# todo: kill bosses
