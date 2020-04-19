@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://game/enemyExplode.gd" type="Script" id=1]
+[ext_resource path="res://assets/audio/sfx/explode.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/sfx/explode3.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/audio/sfx/explode4.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/audio/sfx/explode2.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/initial/enemy1.png" type="Texture" id=6]
+
+[sub_resource type="Curve" id=1]
+max_value = 100.0
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 100 ), 399.992, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=2]
+max_value = 5.0
+_data = [ Vector2( 0.0172811, 5 ), 0.0, -12.6485, 0, 0, Vector2( 1, 0 ), -0.164233, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.15508, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="enemyExplode" type="Node2D"]
+script = ExtResource( 1 )
+explodeSfx = [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
+
+[node name="enemy1" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 0.0666667, 1, 0.105882 )
+texture = ExtResource( 6 )
+
+[node name="player" type="AudioStreamPlayer" parent="."]
+
+[node name="particles" type="CPUParticles2D" parent="."]
+scale = Vector2( 6, 6 )
+emitting = false
+amount = 18
+one_shot = true
+speed_scale = 5.0
+explosiveness = 0.55
+randomness = 0.5
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 2.09
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 16.26
+damping_curve = SubResource( 1 )
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
+[connection signal="finished" from="player" to="." method="_on_player_finished"]

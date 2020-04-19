@@ -19,12 +19,29 @@ func damage(amount:float):
 	$sound_hit.play()
 	$core.modulate = Color(0.6, 0.2, 0.2)
 	damageEffectTimer = 0.05
-	hp -= 15.0
+	hp -= amount
 	$anim.playback_speed = 1 + ((1.0 - (hp / health)) * 6.0)
 	if hp < 0.0:
 		Global.game_over()
+	print("HP damage: " + str(hp))
+
+func heal(amount:float):
+	$sound_heal.play()
+	$core.modulate = Color(0.2, 0.6, 0.2)
+	damageEffectTimer = 0.05
+	hp = min(hp + amount, health)
+	$anim.playback_speed = 1 + ((1.0 - (hp / health)) * 6.0)
+	print("HP heal: " + str(hp))
 
 func _on_core_body_entered(body):
 	if body.is_in_group("enemy"):
-		damage(1.0)
-		body.queue_free()
+		damage(body.damage)
+		body.explode()
+	elif body.is_in_group("powerup"):
+		if body.powerType == "heal":
+			heal(body.healAmount)
+			body.consume()
+
+# Returns a random point inside the core circle
+func get_random_point():
+	return Global.random_point_in_circle($collision.global_position, $collision.shape.radius)

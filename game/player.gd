@@ -14,5 +14,7 @@ func _input(event):
 		motion = event.relative
 
 func _physics_process(delta:float):
-	rotation += motion.x * (paddleSpeed / 10000.0) * delta
+	var ra = motion.x * (paddleSpeed / 10000.0) * delta
+	rotation += ra
+	$starter_paddles.rotation -= ra * 2
 	motion = Vector2(0, 0)

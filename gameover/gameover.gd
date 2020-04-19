@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	$elapsed.text = str(Global.ElapsedTime) + "   seconds"
+	$elapsed.text = str(Global.elapsedTime) + "   seconds"
 	$sound_dead.play()
 
 func _process(delta):
