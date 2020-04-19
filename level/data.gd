@@ -66,7 +66,7 @@ class cLevel:
 const Levels:Array = ["""{
 	"beginnings": {
 		"bg": "#80050505",
-		"time": 64,
+		"time": 70,
 		"enemies": [
 			{
 				"id": "square",
@@ -90,7 +90,7 @@ const Levels:Array = ["""{
 """, """{
 	"insurgence": {
 		"bg": "#0adf7126",
-		"time": 62,
+		"time": 68,
 		"enemies": [
 			{
 				"id": "square",
