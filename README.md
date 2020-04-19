@@ -1,5 +1,9 @@
 # ld46
-My entry for Ludum Dare 46 https://ldjam.com/
+
+ZenithSal's entry for Ludum Dare 46 https://ldjam.com/users/zenithsal/
+
+On Twitter: https://twitter.com/zenithsal
+
 
 ## Attributions
 
