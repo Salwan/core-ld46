@@ -7,7 +7,7 @@ func _ready():
 
 func _process(delta):
 	Global.global_process(delta)
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("game_start"):
 		$sound_select.play()
 		get_tree().change_scene("res://main.tscn")
 	if ticks % 3 == 0:

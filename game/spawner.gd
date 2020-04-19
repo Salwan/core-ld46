@@ -32,6 +32,7 @@ func _ready():
 	randomize()
 	$timer.start()
 	get_parent().connect("sig_init_game", self, "init_game")
+	Global.connect("sig_circle_explode", self, "on_circle_explode")
 
 func init_game():
 	kill_all()
@@ -84,6 +85,18 @@ func spawn_enemy(enemy):
 				en = powerupHeal.instance()
 		en.position = ep
 		spawnParent.add_child(en)
+
+func on_circle_explode(cir:RigidBody2D):
+	assert(cir)
+	var cp = cir.global_position
+	var ep1 = circle.new(Vector2(cp.x + 64, cp.y - 64), 32)
+	var ep2 = circle.new(Vector2(cp.x - 64, cp.y + 64), 32)
+	var s1 = enemyTriangle.instance()
+	s1.global_position = ep1.random_point()
+	var s2 = enemyTriangle.instance()
+	s2.global_position = ep2.random_point()
+	spawnParent.add_child(s1)
+	spawnParent.add_child(s2)
 
 # 1 second tick for any spawner tasks
 func _on_timer_timeout():

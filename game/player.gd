@@ -5,7 +5,7 @@ export(float, 50, 500, 50) var paddleSpeed = 200
 onready var motion:Vector2 = Vector2(0, 0)
 
 func _ready():
-	pass
+	Global.connect("sig_paddle_impact", self, "on_paddle_impact")
 	
 func _input(event):
 	if event is InputEventMouseButton:
@@ -18,3 +18,8 @@ func _physics_process(delta:float):
 	rotation += ra
 	$starter_paddles.rotation -= ra * 2
 	motion = Vector2(0, 0)
+
+func on_paddle_impact():
+	if not $impact.playing:
+		$impact.pitch_scale = 0.8 + (float(randi() % 4) * 0.1)
+		$impact.play()

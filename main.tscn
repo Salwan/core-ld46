@@ -4,7 +4,7 @@
 [ext_resource path="res://game/core.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/initial/starter_paddles.png" type="Texture" id=4]
-[ext_resource path="res://assets/audio/gameplay.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/Six_Umbrellas_-_10_-_Sparks.ogg" type="AudioStream" id=5]
 [ext_resource path="res://main.gd" type="Script" id=6]
 [ext_resource path="res://game/spawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/bebas.ttf" type="DynamicFontData" id=8]
@@ -51,18 +51,26 @@ __meta__ = {
 [node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
-[node name="corner" parent="." instance=ExtResource( 1 )]
+[node name="corner" parent="." groups=[
+"corner",
+] instance=ExtResource( 1 )]
 position = Vector2( 0, 1648.56 )
 
-[node name="corner2" parent="." instance=ExtResource( 1 )]
+[node name="corner2" parent="." groups=[
+"corner",
+] instance=ExtResource( 1 )]
 position = Vector2( 3328, 2161 )
 rotation = -1.5708
 
-[node name="corner_tr" parent="." instance=ExtResource( 1 )]
+[node name="corner_tr" parent="." groups=[
+"corner",
+] instance=ExtResource( 1 )]
 position = Vector2( 3840, 512 )
 rotation = -3.14159
 
-[node name="corner_tl" parent="." instance=ExtResource( 1 )]
+[node name="corner_tl" parent="." groups=[
+"corner",
+] instance=ExtResource( 1 )]
 position = Vector2( 512, 0 )
 rotation = 1.5708
 

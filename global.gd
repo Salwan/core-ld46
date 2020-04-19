@@ -3,6 +3,10 @@ extends Node
 signal sig_game_over
 signal sig_new_game
 signal sig_next_level(level_num)
+# Action when paddles impact an enemy piece at force
+signal sig_paddle_impact
+# Action when circle impact explodes another piece
+signal sig_circle_explode(cir)
 
 enum eRunMode { RELEASE, DEBUG }
 const RunMode = eRunMode.DEBUG

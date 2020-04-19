@@ -60,11 +60,11 @@ class cLevel:
 
 
 const Levels:Array = ["""{
-	"beginning": {
+	"beginnings": {
 		"time": 50,
 		"enemies": [
 			{
-				"id": "square",
+				"id": "circle",
 				"start": 2,
 				"end": 55,
 				"rate": 1.5
@@ -96,6 +96,53 @@ const Levels:Array = ["""{
 				"start": 35,
 				"end": 60,
 				"rate": 4.27
+			}, {
+				"id": "heal",
+				"start": 20,
+				"end": 25,
+				"total": 2
+			}
+		]
+	}
+}""", """{
+	"epiphany": {
+		"time": 70,
+		"enemies": [
+			{
+				"id": "square",
+				"start": 2,
+				"end": 35,
+				"rate": 1.5
+			},{
+				"id": "square",
+				"start": 36,
+				"end": 60,
+				"rate": 1.2
+			}, {
+				"id": "triangle",
+				"start": 25,
+				"end": 45,
+				"rate": 3.0
+			}, {
+				"id": "circle",
+				"start": 50,
+				"end": 60,
+				"rate": 1
+			}, {
+				"id": "heal",
+				"start": 20,
+				"end": 25,
+				"total": 2
+			}, {
+				"id": "heal",
+				"start": 45,
+				"end": 55,
+				"total": 3
+			}, {
+				"id": "heal",
+				"start": 60,
+				"end": 65,
+				"total": 4
 			}
 		]
 	}

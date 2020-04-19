@@ -11,7 +11,7 @@ func on_physics_process(delta):
 	if timeTillOrient > 0.0:
 		timeTillOrient -= delta
 
-func _integrate_forces(state:Physics2DDirectBodyState):
+func on_integrate_forces(state:Physics2DDirectBodyState):
 	var cur_dir = get_global_transform().basis_xform(Vector2(1, 0))
 	var tgt_dir = (aimPoint - get_global_transform().get_origin()).normalized()
 	var at = cur_dir.angle_to(tgt_dir)

@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/initial/enemy1.png" type="Texture" id=1]
-[ext_resource path="res://game/enemy.gd" type="Script" id=2]
+[ext_resource path="res://assets/initial/enemy3.png" type="Texture" id=1]
+[ext_resource path="res://game/enemyCircle.gd" type="Script" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0
 
-[node name="enemy" type="RigidBody2D" groups=[
+[node name="enemyCircle" type="RigidBody2D" groups=[
 "enemy",
 ]]
+mass = 1.53061
 gravity_scale = 0.0
 script = ExtResource( 2 )
-spawnForce = 300.0
+spawnForce = 750.0
+lifetime = 15.0
 
 [node name="enemy1" type="Sprite" parent="."]
 modulate = Color( 1, 0.709804, 0.709804, 1 )
