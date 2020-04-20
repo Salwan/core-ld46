@@ -46,9 +46,9 @@ func game_over(won:bool = false):
 	emit_signal("sig_game_over")
 
 func global_process(delta):
+	if Input.is_action_just_pressed("game_quit"):
+		get_tree().quit()
 	if RunMode == eRunMode.DEBUG:
-		if Input.is_action_just_pressed("debug_quit"):
-			get_tree().quit()
 		if Input.is_action_just_pressed("debug_nextlevel"):
 			next_level()
 		if Input.is_action_just_pressed("debug_spawnboss"):
