@@ -5,6 +5,7 @@ signal sig_init_game
 var elapsed:int = 0
 var accumTime:float = 0.0
 var levelTime:float
+var timeToWelldone:float = 0.0
 
 export(Array, AudioStream) var musicTracks = []
 
@@ -18,6 +19,7 @@ func _ready():
 	$timer.start()
 	Global.connect("sig_game_over", self, "on_game_over")
 	Global.connect("sig_next_level", self, "on_next_level")
+	Global.connect("sig_boss_die", self, "welldone")
 	on_next_level(0)
 
 func _process(delta):
@@ -32,6 +34,12 @@ func _process(delta):
 		elapsed += 1
 	if $win.visible:
 		$win.modulate = Color(0.5 + (randf() * 0.5), 0.3 + (randf() * 0.7), 0.35 + (randf() * 0.65))
+	if $welldone.visible:
+		$welldone.modulate = Color(0.5 + (randf() * 0.5), 0.3 + (randf() * 0.7), 0.35 + (randf() * 0.65))
+	if timeToWelldone > 0:
+		timeToWelldone -= delta
+		if timeToWelldone  <= 0:
+			$welldone.visible = false
 
 func _on_music_finished():
 	$music.play()
@@ -55,6 +63,8 @@ func on_next_level(level_num):
 	$music.stream = musicTracks[Global.currentLevelNumber % len(musicTracks)]
 	$music.play()
 	$bg.color = Color(Global.currentLevel.bg)
+	$welldone.visible = false
+	timeToWelldone = 0.0
 
 #func next_level():
 #	Global.next_level()
@@ -64,3 +74,8 @@ func winning():
 	$win.visible = true
 	$sfx_win.play()
 	Global.win = true
+
+func welldone():
+	$welldone.visible = true
+	$sfx_welldone.play()
+	timeToWelldone = 3.3

@@ -59,7 +59,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/path = NodePath("elapsed:modulate")
@@ -110,8 +110,7 @@ tracks/3/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "win"
+[sub_resource type="Animation" id=5]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("gameover:modulate")
@@ -211,9 +210,9 @@ __meta__ = {
 }
 
 [node name="elapsed" type="Label" parent="."]
-margin_left = 2086.0
+margin_left = 2002.0
 margin_top = 1063.0
-margin_right = 3005.0
+margin_right = 2970.0
 margin_bottom = 1272.0
 custom_fonts/font = SubResource( 2 )
 text = "0   seconds"
@@ -233,8 +232,8 @@ autostart = true
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/gameover = SubResource( 3 )
-anims/idle = SubResource( 5 )
-anims/win = SubResource( 4 )
+anims/idle = SubResource( 4 )
+anims/win = SubResource( 5 )
 
 [node name="sound_win" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

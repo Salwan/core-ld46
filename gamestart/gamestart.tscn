@@ -116,18 +116,24 @@ wait_time = 0.5
 autostart = true
 
 [node name="title_zenithsals" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1920, 311 )
 texture = ExtResource( 8 )
 
 [node name="title_ld46" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1920, 753 )
 texture = ExtResource( 5 )
 
 [node name="title_core" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1920, 1013 )
+scale = Vector2( 8, 8 )
 texture = ExtResource( 6 )
 
 [node name="title_attributions" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1920, 2123 )
 texture = ExtResource( 7 )
 

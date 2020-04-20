@@ -116,6 +116,7 @@ func get_damaged(enemy:RigidBody2D):
 		# die!
 		$sfx_die.play()
 		big_explode()
+		Global.emit_signal("sig_boss_die")
 		queue_free()
 	var c:Color = Color(1, 0.3, 0.3)
 	boss.modulate = c.linear_interpolate(Color(1, 1, 1), hp/health)

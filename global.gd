@@ -7,9 +7,10 @@ signal sig_next_level(level_num)
 signal sig_paddle_impact
 # Action when circle impact explodes another piece
 signal sig_circle_explode(cir)
+signal sig_boss_die
 
 enum eRunMode { RELEASE, DEBUG }
-const RunMode = eRunMode.RELEASE
+const RunMode = eRunMode.DEBUG
 
 var elapsedTime:int = 0
 var currentLevelNumber:int = 0

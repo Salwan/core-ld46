@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/audio/sfx/boss_die.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/audio/sfx/boss_toss2.wav" type="AudioStream" id=8]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 radius = 95.021
 
 [node name="boss" type="Node2D"]
@@ -42,7 +42,7 @@ texture = ExtResource( 2 )
 
 [node name="collider" type="CollisionShape2D" parent="ship"]
 position = Vector2( -2.00012, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="sfx_intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

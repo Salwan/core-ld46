@@ -5,7 +5,7 @@ var blinkCount:int = 0
 
 func _ready():
 	if Global.win:
-		$gameover.text = "KEPT    IT   ALIVE!"
+		$gameover.text = "YOU     KEPT    IT   ALIVE!"
 		$survived.text = "TOTAL   TIME:"
 		$anim.play("win")
 		$sound_win.play()

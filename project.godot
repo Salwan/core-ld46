@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD46"
+config/name="Core-zenithsal-ld46"
 config/description="My entry for LD46"
 run/main_scene="res://gamestart/gamestart.tscn"
 config/icon="res://icon.png"
