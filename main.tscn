@@ -4,14 +4,14 @@
 [ext_resource path="res://game/core.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/initial/starter_paddles.png" type="Texture" id=4]
-[ext_resource path="res://assets/audio/music_compo/track3.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/music/Six_Umbrellas_-_10_-_Sparks.ogg" type="AudioStream" id=5]
 [ext_resource path="res://main.gd" type="Script" id=6]
 [ext_resource path="res://game/spawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/fonts/bebas.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://assets/audio/music_compo/track2.ogg" type="AudioStream" id=9]
-[ext_resource path="res://assets/audio/music_compo/track5.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/music/Bisou_-_09_-_Panda.ogg" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/music/Ketsa_-_Time_Travel.ogg" type="AudioStream" id=10]
+[ext_resource path="res://assets/audio/music/Ketsa_-_Launch.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/audio/sfx/win.wav" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/music_compo/track1.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/sfx/winning.ogg" type="AudioStream" id=14]
 
 [sub_resource type="Environment" id=1]
@@ -47,7 +47,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 1080.0 ],
 "_edit_vertical_guides_": [ 1920.0 ]
 }
-musicTracks = [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 10 ) ]
+musicTracks = [ ExtResource( 11 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ) ]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

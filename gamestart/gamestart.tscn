@@ -132,7 +132,6 @@ scale = Vector2( 8, 8 )
 texture = ExtResource( 6 )
 
 [node name="title_attributions" type="Sprite" parent="."]
-visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 1920, 2123 )
 texture = ExtResource( 7 )
