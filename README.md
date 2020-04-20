@@ -1,6 +1,6 @@
-# ld46
+# Core
 
-ZenithSal's entry for Ludum Dare 46 https://ldjam.com/users/zenithsal/
+My entry for Ludum Dare 46 https://ldjam.com/users/zenithsal/
 
 On Twitter: https://twitter.com/zenithsal
 
