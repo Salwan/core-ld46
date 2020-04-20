@@ -10,7 +10,7 @@ signal sig_circle_explode(cir)
 signal sig_boss_die
 
 enum eRunMode { RELEASE, DEBUG }
-const RunMode = eRunMode.DEBUG
+const RunMode = eRunMode.RELEASE
 
 var elapsedTime:int = 0
 var currentLevelNumber:int = 0
